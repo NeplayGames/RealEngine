@@ -5,3 +5,5 @@
 //----------Entry Point ----------
 
 #include "RealEngine/EntryPoint.h"
+
+#include "RealEngine/Log.h"

@@ -1,0 +1,3 @@
+[submodule "RealEngine/Vedor/spdlog"]
+	path = RealEngine/Vedor/spdlog
+	url = https://github.com/gabime/spdlog
