@@ -7,3 +7,5 @@
 		#define REALENGINE_API __declspec(dllimport)
 #endif
 #endif // DEBUG
+
+#define BIT(x) (1 << x)
