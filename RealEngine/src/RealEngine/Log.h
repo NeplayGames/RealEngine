@@ -1,7 +1,7 @@
 #include<memory>
 #include "Core.h"
 #include "spdlog/spdlog.h"
-
+#pragma once
 namespace RealEngine {
 	class REALENGINE_API Log
 	{
