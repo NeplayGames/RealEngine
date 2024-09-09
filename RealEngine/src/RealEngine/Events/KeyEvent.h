@@ -33,4 +33,20 @@ namespace RealEngine {
 	private:
 		int m_RepeatCount;
 	};
+
+	class REALENGINE_API KeyReleasedEvent : public KeyEvent {
+		public:
+			KeyReleasedEvent(int KeyCode) :KeyEvent(KeyCode) {
+
+			}
+			std::string ToString() const override {
+				std::stringstream ss;
+				ss << "KeyReleasedEvent" << m_KeyCode;
+			}
+
+			static EventType GetStaticType() { return EventType::KeyReleased; }
+			virtual EventType GetEventType() const override { return GetStaticType(); }
+			virtual const char* GetName() const override { return "KeyReleased"; }
+
+	};
 }

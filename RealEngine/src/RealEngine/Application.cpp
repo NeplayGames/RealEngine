@@ -6,7 +6,10 @@ namespace RealEngine {
 	void Application::Run() {
 		printf("Welcome to the real engine");
 		KeyPressedEvent e(2, 5);
-		RE_TRACE(e);
+		if (e.IsCategory(EventInput)) {
+			RE_TRACE(e.ToString());
+		}
+		
 		while (true) {
 		}
 	}
