@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Event.h"
-#include <sstream>
+
 namespace RealEngine {
 	class REALENGINE_API KeyEvent : public Event 
 	{
@@ -42,6 +42,7 @@ namespace RealEngine {
 			std::string ToString() const override {
 				std::stringstream ss;
 				ss << "KeyReleasedEvent" << m_KeyCode;
+				return ss.str();
 			}
 
 			static EventType GetStaticType() { return EventType::KeyReleased; }
