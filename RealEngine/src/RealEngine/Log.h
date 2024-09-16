@@ -1,5 +1,6 @@
 #include "Core.h"
 #include "spdlog/spdlog.h"
+#include "Window.h"
 #pragma once
 namespace RealEngine {
 	class REALENGINE_API Log

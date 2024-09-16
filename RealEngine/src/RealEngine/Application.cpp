@@ -1,17 +1,16 @@
 #include "Repch.h"
 #include "Application.h"
-
-#include "Events/KeyEvent.h"
-#include "Log.h"
 namespace RealEngine {
+	Application::Application()
+	{
+		m_Window = std::unique_ptr<Window>(WindowsWindow::Create());
+	}
+	Application::~Application()
+	{
+	}
 	void Application::Run() {
-		printf("Welcome to the real engine");
-		KeyPressedEvent e(2, 5);
-		if (e.IsCategory(EventInput)) {
-			RE_TRACE(e.ToString());
-		}
-		
 		while (true) {
+			m_Window->OnUpdate();
 		}
 	}
 }

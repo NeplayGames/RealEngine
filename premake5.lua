@@ -9,6 +9,11 @@ workspace "RealEngine"
 	}
 
 outputdir = "%{cfg.buildcfg}~%{cfg.system}~%{cfg.architecture}"
+
+Includedirs = {}
+Includedirs["GLFW"] = "RealEngine/Vendor/GLFW/include"
+
+include "RealEngine/Vendor/GLFW"
 project "RealEngine"
 	location "RealEngine"
 	kind "SharedLib"
@@ -28,7 +33,15 @@ project "RealEngine"
 
 	includedirs
 	{
-		"%{prj.name}/vendor/spdlog/include"
+		"%{prj.name}/src",
+		"%{prj.name}/vendor/spdlog/include",
+		"%{Includedirs.GLFW}"
+	}
+
+	links{
+		"GLFW",
+		"opengl32.lib",
+		"dwmapi.lib"
 	}
 	
 	filter "system:windows"
@@ -80,10 +93,14 @@ project "Sandbox"
 	{
 		"RealEngine/vendor/spdlog/include",
 		"RealEngine/src",
+		"%{Includedirs.GLFW}"
 	}
-
+	
 	links{
-		"RealEngine"
+		"RealEngine",
+		"GLFW",
+		"opengl32.lib",
+		"dwmapi.lib"
 	}
 	
 	filter "system:windows"
