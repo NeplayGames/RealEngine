@@ -1,6 +1,7 @@
 #pragma once
 
 #include "RealEngine/Core.h"
+#include "Events/Event.h"
 
 namespace RealEngine {
 
@@ -10,9 +11,9 @@ namespace RealEngine {
 		uint32_t Width;
 		uint32_t Height;
 
-		WindowProps(const std::string& title = "Hazel Engine",
-			uint32_t width = 1600,
-			uint32_t height = 900)
+		WindowProps(const std::string& title = "Real Engine",
+			uint32_t width = 1920,
+			uint32_t height = 1080)
 			: Title(title), Width(width), Height(height)
 		{
 		}
@@ -21,7 +22,7 @@ namespace RealEngine {
 	class REALENGINE_API Window
 	{
 	public:
-	//	using EventCallbackFn = std::function<void(Event&)>;
+		using EventCallbackFn = std::function<void(Event&)>;
 
 		virtual ~Window() = default;
 
@@ -31,7 +32,7 @@ namespace RealEngine {
 		virtual uint32_t GetHeight() const = 0;
 
 		// Window attributes
-		//virtual void SetEventCallback(const EventCallbackFn& callback) = 0;
+		virtual void SetEventCallback(const EventCallbackFn& callback) = 0;
 		virtual void SetVSync(bool enabled) = 0;
 		virtual bool IsVSync() const = 0;
 

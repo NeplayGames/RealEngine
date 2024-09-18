@@ -58,8 +58,4 @@ namespace RealEngine {
 	private:
 		Event& m_Event;
 	 };
-
-	std::ostream& operator<<(std::ostream& os, const Event& e) {
-		return os << e.ToString();
-	}
 }

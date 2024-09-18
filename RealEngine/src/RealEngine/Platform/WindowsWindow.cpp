@@ -32,11 +32,10 @@ namespace RealEngine {
 		if (s_GLFWWindowCount == 0)
 		{
 			int success = glfwInit();
-			glfwSetErrorCallback(GLFWErrorCallback);
-			m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
+			RE_CORE_INFO(success);
 		}
-
-
+		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
+		glfwMakeContextCurrent(m_Window);
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		SetVSync(true);
 
