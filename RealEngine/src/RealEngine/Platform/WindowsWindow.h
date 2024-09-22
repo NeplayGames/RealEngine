@@ -26,7 +26,7 @@ namespace RealEngine {
 		virtual void Shutdown();
 	private:
 		GLFWwindow* m_Window;
-
+		void SetGLFWCallBacks(GLFWwindow*);
 		struct WindowData
 		{
 			std::string Title;
