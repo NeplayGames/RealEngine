@@ -6,13 +6,13 @@ namespace RealEngine {
 	enum class EventType {
 		None = 0,
 		WindowClosed, WindowResized, WindowFocus, WindowLostFocus, WindowMoved,
-		KeyPressed, KeyReleased,
+		KeyPressed, KeyReleased, KeyTyped,
 		MouseButtonPressed, MouseButtonReleased, MouseMoved, MouseScrolled
 	};
 
 	enum EventCategory {
 		None = 0,
-		EventApplication    = BIT(0),
+		EventWindow    = BIT(0),
 		EventInput          = BIT(1),
 		EventKeyboard       = BIT(2),
 		EventMouse			= BIT(3),

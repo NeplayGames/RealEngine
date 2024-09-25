@@ -25,10 +25,7 @@ namespace RealEngine {
 			ss << "KeyPressedEvent" << m_KeyCode << "(" << m_RepeatCount << " repeats)";
 			return ss.str();
 		}
-
-		static EventType GetStaticType() { return EventType::KeyPressed; }
-		virtual EventType GetEventType() const override { return GetStaticType(); }
-		virtual const char* GetName() const override { return "KeyPressed"; }
+		EVENT_TYPE(KeyPressed);
 
 	private:
 		int m_RepeatCount;
@@ -40,14 +37,24 @@ namespace RealEngine {
 
 			}
 			std::string ToString() const override {
-			////	std::stringstream ss;
-				//ss << "KeyReleasedEvent" << m_KeyCode;
-				return "ss.str()";
+				std::stringstream ss;
+				ss << "KeyReleasedEvent" << m_KeyCode;
+				return ss.str();
 			}
+			EVENT_TYPE(KeyReleased);
+	};
 
-			static EventType GetStaticType() { return EventType::KeyReleased; }
-			virtual EventType GetEventType() const override { return GetStaticType(); }
-			virtual const char* GetName() const override { return "KeyReleased"; }
 
+	class REALENGINE_API KeyTypedEvent : public KeyEvent {
+	public:
+		KeyTypedEvent(int KeyCode) :KeyEvent(KeyCode) {
+
+		}
+		std::string ToString() const override {
+			std::stringstream ss;
+			ss << "KeyReleasedEvent" << m_KeyCode;
+			return ss.str();
+		}
+		EVENT_TYPE(KeyTyped);
 	};
 }

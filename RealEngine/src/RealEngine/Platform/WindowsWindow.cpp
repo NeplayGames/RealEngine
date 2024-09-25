@@ -1,6 +1,7 @@
 #include "Repch.h"
 #include "RealEngine/Platform/WindowsWindow.h"
 #include <RealEngine/Events/KeyEvent.h>
+#include "../../../WIndowsEvent.h"
 
 
 namespace RealEngine {
@@ -34,6 +35,7 @@ namespace RealEngine {
 		{
 			int success = glfwInit();
 			RE_CORE_INFO(success);
+			s_GLFWWindowCount = 1;
 		}
 		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
 		glfwMakeContextCurrent(m_Window);
@@ -45,8 +47,8 @@ namespace RealEngine {
 	void WindowsWindow::SetGLFWCallBacks(GLFWwindow* window) {
 			glfwSetWindowSizeCallback(window, [](GLFWwindow* window, int width, int height) {
 				WindowsWindow::WindowData& data = *(WindowsWindow::WindowData*) glfwGetWindowUserPointer(window);
-				KeyPressedEvent keyPressedEvent(5, 1);
-				data.EventCallback(keyPressedEvent);
+				WindowResizedEvent windowResizedEvent(width, height);
+				data.EventCallback(windowResizedEvent);
 			});
 	}
 	void WindowsWindow::Shutdown()
